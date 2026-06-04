@@ -1,20 +1,20 @@
 import { useState } from "react"
 
 
-export default function Form({ getWeather }) {
-  const [city, setCity] = useState('Denver')
+export default function Form({ updateCity, city }) {
+  const [cityInput, setCity] = useState(city)
 
     function handleSubmit(e) {
       e.preventDefault()
-      getWeather(city)
+      updateCity(cityInput)
     }
     
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={city}
+          value={cityInput}
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter city name"
         />
