@@ -42,7 +42,7 @@ export default function Summary({city}) {
     {isLoading && <p>Loading...</p>}
     {error && <p>{error}</p>}
     {currentWeather && (
-      <div>
+      <div className="current-weather">
         <p>Temperature: {currentWeather.temp}°C</p>
         <p>Weather: {currentWeather.weather.description}</p>
         <p>

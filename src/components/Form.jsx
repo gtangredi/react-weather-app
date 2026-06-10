@@ -10,7 +10,7 @@ export default function Form({ updateCity, city }) {
     }
     
   return (
-    <div>
+    <div className="form">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
