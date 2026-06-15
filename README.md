@@ -1,16 +1,62 @@
-# React + Vite
+# Weather Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React application that alllows viewers to search any city, view the current weather conditions, and see 5-day weather forecast.
 
-Currently, two official plugins are available:
+The application uses 'OpenWeather'Map' API to retrieve real-time weather data and forecast information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+#### Live Demo: [https://react-weather-app-yb4e.onrender.com/](https://react-weather-app-yb4e.onrender.com/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+demo image
 
-## Expanding the ESLint configuration
+[![Weather App Demo](demo.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Set-Up Instructions
+
+### Requirements
+
+* Node js installed
+* NPM
+* WeatherMap API key
+
+### Installations
+
+Installed dependencies
+
+```bash
+npm install
+```
+
+Create .env file in the project root, and add OpenWeatherMap API key.
+
+```env
+VITE_API_KEY=your_api_key goes here
+```
+
+Now start development server
+
+```bash
+npm run dev
+```
+
+Open browser
+
+```plaintext
+ http://localhost:5173/
+```
+
+## API used and endpoint(s)
+
+The application uses the OpenWeatherMap API to retrieve weather data. The following endpoints are utilized:
+
+1. **Current Weather Data**: This endpoint provides real-time weather information for a specific city. It includes details such as temperature, humidity, wind speed, and weather conditions.
+   - Endpoint: `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
+2. **5-Day Weather Forecast**: This endpoint provides a 5-day weather forecast for a specific city, with data available in 3-hour intervals. It includes information such as temperature, humidity, wind speed, and weather conditions for each interval.
+   - Endpoint: `https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}`
+
+## Any challenges or known bugs
+
+* The forescast endpoint returns data in a 3-hour intervals rather than daily summaries.
+* Forecast data needed to be grouped by date to create a clean 5-day forecast view.
+* Handling invalid city searches and displaying appropriate error messages to the user.
